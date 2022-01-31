@@ -14,7 +14,7 @@ body {
 </style>
 <body>
 	<div data-role="header" align="center">
-		<img src="img/lambton.png" width="200px" height="200px">
+		<img src="img/lambton.png">
 	</div>
 	<div data-role="content" align="center" style="margin-top: 4%;">
 		<form action="login" method="POST">
