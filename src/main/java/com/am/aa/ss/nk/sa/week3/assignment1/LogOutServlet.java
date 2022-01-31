@@ -1,5 +1,14 @@
 package com.am.aa.ss.nk.sa.week3.assignment1;
 
+/***
+ * 
+ * @author Abhinav
+ * @Date 30-01-2022
+ * 
+ * @Description This will invalidate the session and delete the cookie in order to log out the user.
+ * 
+ */
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;

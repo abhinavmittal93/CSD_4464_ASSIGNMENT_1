@@ -1,6 +1,18 @@
 package com.am.aa.ss.nk.sa.week3.assignment1;
 
+/**
+ * @date  30/01/2022
+ * 
+ * @author Samridhi, Aarti
+ * 
+ * @description This is servlet to caluclate average, minimum and maximum scores,
+ * grade and grade point according to the grade scheme of Lambton College
+ * and to display it on the Result page.
+ * 
+ */
+
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -106,11 +118,13 @@ public class Results extends HttpServlet {
 		double minScore = findMinScore(scores);
 
 		String studentName = request.getParameter("studentname");
+		
+		DecimalFormat decimalFormat = new DecimalFormat("0.##");
 
 		HttpSession session = request.getSession(false);
 		// save information in session
 		session.setAttribute("studentName", studentName);
-		session.setAttribute("average", avg);
+		session.setAttribute("average", decimalFormat.format(avg));
 		session.setAttribute("grade", grade);
 		session.setAttribute("gradePoint", gradePoint);
 		session.setAttribute("minScore", minScore);
@@ -118,6 +132,12 @@ public class Results extends HttpServlet {
 		response.sendRedirect("Result.jsp");
 	}
 
+	/**
+	 * It finds the maximum number from the array
+	 * 
+	 * @param scores
+	 * @return the maximum score from the array
+	 */
 	private double findMaxScore(Double[] scores) {
 		Double maxScore = 0.0;
 		if (scores.length > 0) {
@@ -131,6 +151,12 @@ public class Results extends HttpServlet {
 		return maxScore;
 	}
 
+	/**
+	 * It finds the minimum number from the array
+	 * 
+	 * @param scores
+	 * @return the minimum score from the array
+	 */
 	private double findMinScore(Double[] scores) {
 		Double minScore = 0.0;
 		if (scores.length > 0) {

@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%
+boolean isLoggedIn = session.getAttribute("isLoggedIn") != null ? (boolean) session.getAttribute("isLoggedIn") : false;
+if (!isLoggedIn) {
+	session.setAttribute("message", "<p style=\"color:red;\">Please login to continue!!!</p>");
+	response.sendRedirect("Login.jsp");
+}
+%>
 <html>
 <head>
 <link rel="stylesheet" href="style/styles.css">
@@ -9,11 +16,6 @@
 <style>
 img {
 	border-radius: 8px;
-}
-
-body {
-	background-color: #005587;
-	color: white;
 }
 </style>
 </head>
