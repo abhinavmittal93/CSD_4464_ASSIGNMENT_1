@@ -129,7 +129,7 @@ public class Results extends HttpServlet {
 		session.setAttribute("gradePoint", gradePoint);
 		session.setAttribute("minScore", minScore);
 		session.setAttribute("maxScore", maxScore);
-		response.sendRedirect("Result.jsp");
+		response.sendRedirect("final.jsp");
 	}
 
 	/**
